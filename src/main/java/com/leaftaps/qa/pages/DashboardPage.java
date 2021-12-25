@@ -31,7 +31,7 @@ public class DashboardPage
 	public String dashboardPageHeader()
 	{
 		String el = eU.getElement(dashboardHeader).getText().trim();
-		System.out.println(el);
+		System.out.println("text is" +el);
 		return el;
 		
 	}
