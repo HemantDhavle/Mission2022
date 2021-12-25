@@ -30,6 +30,7 @@ public class createLeadPageTest extends BaseTest
 	public void doCreateLeadTest(String CompanyName, String FirstName, String Source)
 	{
 		createLead.doCreateLead(CompanyName, FirstName, Source);
+		System.out.println("This is doCreateLeadTest");
 	}
 	
 	
