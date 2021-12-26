@@ -28,13 +28,13 @@ public class DashboardPage
 		return jU.doJSgetTitle();
 	}
 	
-	public String dashboardPageHeader()
-	{
-		String el = eU.getElement(dashboardHeader).getText().trim();
-		System.out.println("text is" +el);
-		return el;
-		
-	}
+//	public String dashboardPageHeader()
+//	{
+//		String el = eU.getElement(dashboardHeader).getText().trim();
+//		System.out.println("text is" +el);
+//		return el;
+//		
+//	}
 		
 	public HomePage doDashboardIconClick()
 	{

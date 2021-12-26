@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Test" thread-count="3" parallel="tests" verbose="3" >
+<listeners>
+	
+		<listener
+			class-name="com.leaftaps.qa.listeners.TestAllureListener" />
+			
+<listener
+			class-name="com.leaftaps.qa.listeners.AnnotationTransformer" />
+		
+	</listeners>
+	<test name="login page Test">
+		<classes>
+			<class name="com.leaftaps.qa.tests.loginPageTest" />
+		</classes>
+		</test>
+	<test name="Dashboard page Test">
+		<classes>
+			<class name="com.leaftaps.qa.tests.dashboardPageTest" />
+		</classes>
+		</test>
+	<test name="Home page Test">
+		<classes>
+			<class name="com.leaftaps.qa.tests.homePageTest" />
+		</classes>
+		</test>
+	<test name="Create Lead page Test">
+		<classes>
+			<class name="com.leaftaps.qa.tests.createLeadPageTest" />
+		</classes>
+		</test>
+</suite>

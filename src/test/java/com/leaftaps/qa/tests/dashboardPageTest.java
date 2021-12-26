@@ -20,14 +20,14 @@ public class dashboardPageTest extends BaseTest
 		String dashboardTitle = dashboardPage.dashboardPageTitle();
 		Assert.assertEquals(dashboardTitle, Constants.DASHBOARD_PAGE_TITLE);
 	}
-	
-	@Test
-	public void dashboardPageHeaderTest()
-	{
-		String dashboardHeader = dashboardPage.dashboardPageHeader();
-		System.out.println(dashboardHeader);
-		//Assert.assertEquals(dashboardHeader, Constants.DASHBOARD_PAGE_HEADER);
-	}
+//	
+//	@Test
+//	public void dashboardPageHeaderTest()
+//	{
+//		String dashboardHeader = dashboardPage.dashboardPageHeader();
+//		System.out.println(dashboardHeader);
+//		//Assert.assertEquals(dashboardHeader, Constants.DASHBOARD_PAGE_HEADER);
+//	}
 	
 	@Test
 	public void doDashboardIconClickTest()
