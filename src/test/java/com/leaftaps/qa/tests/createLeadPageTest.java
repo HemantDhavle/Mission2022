@@ -2,11 +2,14 @@ package com.leaftaps.qa.tests;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.leaftaps.qa.listeners.TestAllureListener;
 import com.leaftaps.qa.utility.Constants;
 import com.leaftaps.qa.utility.ExcelUtils;
 
+@Listeners(TestAllureListener.class)
 public class createLeadPageTest extends BaseTest
 {
 	

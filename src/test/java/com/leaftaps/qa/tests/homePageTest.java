@@ -2,10 +2,13 @@ package com.leaftaps.qa.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.leaftaps.qa.listeners.TestAllureListener;
 import com.leaftaps.qa.pages.HomePage;
 
+@Listeners(TestAllureListener.class)
 public class homePageTest extends BaseTest
 {
 	public HomePage homePage;
