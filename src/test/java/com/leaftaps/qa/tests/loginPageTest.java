@@ -26,7 +26,7 @@ public class loginPageTest extends BaseTest
 	}
 	
 	@Severity(SeverityLevel.MINOR)
-	@Test
+	@Test(invocationCount = 2)
 	public void LoginPageURLTest()
 	{
 		String loginURL = loginPage.LoginPageURL();
