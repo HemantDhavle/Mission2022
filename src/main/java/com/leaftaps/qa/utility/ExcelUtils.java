@@ -22,8 +22,8 @@ public class ExcelUtils
 		Object[][] data = null;
 		
 		try {
-			FileInputStream fs = new FileInputStream(EXCEL_SHEET_PATH);
-			book = WorkbookFactory.create(fs);
+			FileInputStream fs = new FileInputStream(EXCEL_SHEET_PATH);//FileNotFoundException, IOException
+			book = WorkbookFactory.create(fs); //it is used to read the excel sheet ->this will be return InvalidFormatException
 			sheet = book.getSheet(sheetName);
 			}
 		 catch (FileNotFoundException e1) 

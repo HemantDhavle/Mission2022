@@ -3,12 +3,10 @@
 <suite name="Regression Test" thread-count="3" parallel="tests" verbose="3" >
 <listeners>
 	
+	
 		<listener
-			class-name="com.leaftaps.qa.listeners.TestAllureListener" />
-			
-<listener
-			class-name="com.leaftaps.qa.listeners.AnnotationTransformer" />
-		
+			class-name="com.leaftaps.qa.listeners.ExtentReportListener" />
+	
 	</listeners>
 	<test name="login page Test">
 		<classes>
