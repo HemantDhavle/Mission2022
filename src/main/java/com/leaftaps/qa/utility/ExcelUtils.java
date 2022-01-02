@@ -12,7 +12,10 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelUtils 
 {
-	private static final  String EXCEL_SHEET_PATH ="./src/test/resources/testData/leaftaps_testdata.xlsx";
+	private static final  String INT_EXCEL_SHEET_PATH ="./src/test/resources/testData/int_leaftaps_testdata.xlsx";
+	private static final  String QA_EXCEL_SHEET_PATH ="./src/test/resources/testData/qa_leaftaps_testdata.xlsx";
+	private static final  String PROD_EXCEL_SHEET_PATH ="./src/test/resources/testData/prod_leaftaps_testdata.xlsx";
+	private static  FileInputStream fs;
 	private static Workbook book;
 	private static Sheet sheet;
 	
@@ -20,9 +23,19 @@ public class ExcelUtils
 	public static Object[][] getExcelData(String sheetName)
 	{
 		Object[][] data = null;
-		
+		String env = System.getProperty("env");
 		try {
-			FileInputStream fs = new FileInputStream(EXCEL_SHEET_PATH);
+			switch (env) {
+			case "qa":
+				fs = new FileInputStream(QA_EXCEL_SHEET_PATH);
+				break;
+			case "int":
+				fs = new FileInputStream(INT_EXCEL_SHEET_PATH);
+			default:
+			case "prod":
+				fs = new FileInputStream(PROD_EXCEL_SHEET_PATH);
+				break;
+			}
 			book = WorkbookFactory.create(fs);
 			sheet = book.getSheet(sheetName);
 			}
