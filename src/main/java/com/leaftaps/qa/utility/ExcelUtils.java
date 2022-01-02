@@ -36,7 +36,7 @@ public class ExcelUtils
 				fs = new FileInputStream(PROD_EXCEL_SHEET_PATH);
 				break;
 			}
-			book = WorkbookFactory.create(fs);
+			book = WorkbookFactory.create(fs); //it is used to read the excel sheet ->this will be return InvalidFormatException
 			sheet = book.getSheet(sheetName);
 			}
 		 catch (FileNotFoundException e1) 
