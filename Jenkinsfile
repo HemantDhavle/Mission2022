@@ -1,41 +1,66 @@
-pipeline
+pipeline 
 {
     agent any
     
-    stages
+    tools{
+    	maven 'maven'
+        }
+
+    stages 
     {
-        stage("Build")
+        stage('Build') 
         {
-            steps
+            steps 
             {
-            echo("Build")
+                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+            post 
+            {
+                success 
+                {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
             }
         }
         
-        stage("qa")
-        {
-            steps
-            {
-            echo("qa")
+        
+        stage('Regression Automation Test') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    git 'https://github.com/HemantDhavle/Mission2022.git'
+                    bat "mvn clean install"
+                }
+            }
+        }
+                
+     
+        stage('Publish Allure Reports') {
+           steps {
+                script {
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: '/allure-results']]
+                    ])
+                }
             }
         }
         
-         
-        stage("stage")
-        {
-            steps
-            {
-            echo("stage")
-            }
-        }
         
-             
-        stage("production")
-        {
-            steps
-            {
-            echo("production")
+        stage('Publish Extent Report'){
+            steps{
+                     publishHTML([allowMissing: false,
+                                  alwaysLinkToLastBuild: false, 
+                                  keepAll: false, 
+                                  reportDir: 'build', 
+                                  reportFiles: 'TestExecutionReport.html', 
+                                  reportName: 'HTML Extent Report', 
+                                  reportTitles: ''])
             }
         }
-    } 
+    }
 }
