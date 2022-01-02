@@ -103,6 +103,9 @@ public class DriverFactory
 			case "qa":
 				fs = new FileInputStream("./src/test/resources/config/qa_config.properties");
 				break;
+			case "int":
+				fs = new FileInputStream("./src/test/resources/config/int_config.properties");
+				break;
 			default:
 				System.out.println("Please pass the correct environment name");
 				break;
