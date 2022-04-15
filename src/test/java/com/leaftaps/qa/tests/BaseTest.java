@@ -7,6 +7,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import com.leaftaps.qa.factory.DriverFactory;
+import com.leaftaps.qa.pages.ContactsPage;
 import com.leaftaps.qa.pages.CreateLeadPage;
 import com.leaftaps.qa.pages.DashboardPage;
 import com.leaftaps.qa.pages.HomePage;
@@ -21,6 +22,7 @@ public class BaseTest
 	public DashboardPage dashboardPage;
 	public HomePage homePage;
 	public CreateLeadPage createLead;
+	public ContactsPage contactPage;
 	
 	@BeforeTest
 	public void setUp()
@@ -30,7 +32,7 @@ public class BaseTest
 		driver  = df.initilized_driver(prop);
 		loginPage = new LoginPage(driver);
 		//dashboardPage = new DashboardPage(driver);
-		
+	
 	}
 	
 	@AfterTest

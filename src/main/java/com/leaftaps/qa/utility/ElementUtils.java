@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,6 +15,7 @@ public class ElementUtils
 {
 	public WebDriver driver;
 	public WebDriverWait wait;
+	public Actions action;
 	
 	public ElementUtils(WebDriver driver)
 	{ 
@@ -227,6 +229,51 @@ public class ElementUtils
 	}
 	
 	
+	public String doGetTextWait(By locator, int duration)
+	{
+		wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
+		return wait.until(ExpectedConditions.visibilityOf(getElement(locator))).getText();
+	}
+	
+	//action-- Do double click
+	public void doDoubleClick(By locator)
+	{
+		action = new Actions(driver);
+		action.doubleClick(getElement(locator)).build().perform();
+	}
+	
+	//action-- Do right click
+	public void doRightClick(By locator)
+	{
+		action = new Actions(driver);
+		action.contextClick(getElement(locator)).build().perform();
+	}
+	
+	
+	//fName- elementToSearch
+	//nextlink - clickNextButton
+	//lName - elementToIdentify
+	
+	public String validatePagination(By fName, By lName, By nextLink)
+	{
+		List<WebElement> firstN =  getElements(fName);
+		
+		while(true)
+		{
+			if(!(firstN.size()==1))
+			{
+				doClickWait(nextLink, 1000);
+				firstN =  getElements(fName);
+			}
+			else
+			{
+				String lastName= doGetTextWait(lName, 1000);
+				return lastName;
+			}
+		}
+	}
+	
+
 	
 	
 

@@ -8,4 +8,5 @@ public class Constants
 	public static final String DASHBOARD_PAGE_TITLE = "Leaftaps - TestLeaf Automation Platform";
 	public static final String DASHBOARD_PAGE_HEADER = "Demo Sales Manager";
 	public static final String EXCEL_SHEET_NAME = "Create Lead";
+	public static final String CONTACT_PAGE_TITLE = "Contacts";
 }

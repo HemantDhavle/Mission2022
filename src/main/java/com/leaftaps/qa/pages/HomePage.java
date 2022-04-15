@@ -17,6 +17,7 @@ public class HomePage
 	}
 	
 	private By createLeadLink = By.xpath("//ul[@class = 'shortcuts']//a[contains(text(),'Lead')]");
+	private By contactMenu = By.xpath("//a[text()='Contacts']");
 	
 	public boolean CreateLeadLinkDisplayed()
 	{
@@ -27,6 +28,13 @@ public class HomePage
 	{
 		eU.doClick(createLeadLink);
 		return new CreateLeadPage(driver);
+	}
+
+	
+	public ContactsPage ClickContactbutton()
+	{
+		eU.doClick(contactMenu);
+		return new ContactsPage(driver);
 	}
 
 }
